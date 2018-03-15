@@ -14,12 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('1709', function(){
-	return view('1709-form');
+use Illuminate\Http\Request;
+
+Route::get('test-params/{name}/{age?}', 
+			function(Request $request){
+
+
+	return $request->name;
+})->name('1709-test');	
+
+Route::post('test-param', function(Request $request){
+	return "Request dang post co gia tri: username = $request->username, password = $request->password";
 });
-Route::post('1709', function(){
-	return "post 1709 url";
-});
-Route::get('thienth', function(){
-	return response()->redirect('1709');
-});
+
+

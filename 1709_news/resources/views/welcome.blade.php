@@ -65,31 +65,20 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
+        <a href="{{ route('1709-test', 
+                            [
+                                'name' => 'thienth 1234', 
+                                'age' => 500
+                            ]
+                        ) 
+                }}" title="">Link to test param url</a>
+        <form action="test-param" method="post">
+            @csrf
+            <input type="text" name="username" value="" placeholder="">
+            <br>
+            <input type="password" name="password" value="" placeholder="">
+            <br>
+            <button type="submit">submit</button>
+        </form>
     </body>
 </html>
